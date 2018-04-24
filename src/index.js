@@ -9,7 +9,7 @@ import saga from './saga';
 
 const fileInputRef = { input: null };
 
-const S3FileUploadButton = ({ children, name, id, fileInputVisible, fileSelectedHandler, className, signedUrl }) => {
+const S3FileUploadButton = ({ children, name, id, fileInputVisibility, fileSelectedHandler, className, signedUrl }) => {
   const changeHandler = makeChangeHandler(fileSelectedHandler, signedUrl);
   const refCallback = makeRefCallback(fileInputRef);
   const clickHandler = makeClickHandler(fileInputRef);
@@ -22,7 +22,7 @@ const S3FileUploadButton = ({ children, name, id, fileInputVisible, fileSelected
         name={name}
         id={id}
         onChange={changeHandler}
-        style={{ visibility: fileInputVisible }}
+        style={{ display: fileInputVisibility }}
       />
     </button>
   );
@@ -36,13 +36,13 @@ export const makeRefCallback = (superScopedObject) => (input) => {
 };
 
 S3FileUploadButton.defaultProps = {
-  fileInputVisible: 'hidden',
+  fileInputVisibility: 'none',
   className: '',
 };
 
 S3FileUploadButton.propTypes = {
   children: PropTypes.any,
-  fileInputVisible: PropTypes.string,
+  fileInputVisibility: PropTypes.string,
   fileSelectedHandler: PropTypes.func,
   name: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
