@@ -14,7 +14,8 @@ const S3FileUploadButton = ({ children, name, id, fileInputVisible, fileSelected
   const refCallback = makeRefCallback(fileInputRef);
   const clickHandler = makeClickHandler(fileInputRef);
   return (
-    <div className={className}>
+    <button className={className} onClick={clickHandler}>
+      {children}
       <input
         type="file"
         ref={refCallback}
@@ -23,8 +24,7 @@ const S3FileUploadButton = ({ children, name, id, fileInputVisible, fileSelected
         onChange={changeHandler}
         style={{ visibility: fileInputVisible }}
       />
-      <label htmlFor={name}><button onClick={clickHandler}>{children}</button></label>
-    </div>
+    </button>
   );
 };
 
