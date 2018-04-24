@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { shallow } from 'enzyme';
-import { S3FileUploadButton, mapDispatchToProps, makeChangeHandler, makeRefCallback } from '../src';
+import { S3FileUploadButton, mapDispatchToProps, makeChangeHandler, makeRefCallback, makeClickHandler } from '../src';
 import { uploadToS3 } from '../src/action';
 
 test('S3FileUploadButton renders without problems', () => {
@@ -51,4 +51,9 @@ test('refCallback takes a fileInputRef that has a higher scope and assigns its a
   const mockInput = 'mockInput';
   makeRefCallback(mockFileInputRef)(mockInput);
   expect(mockFileInputRef.input).toEqual(mockInput);
+});
+
+test('makeClickHandler takes a fileInputRef that has a higher scope and assigns its argument to that variable', (done) => {
+  const mockFileInputRef = { input: { click: () => done() } };
+  makeClickHandler(mockFileInputRef)();
 });
