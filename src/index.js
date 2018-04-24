@@ -22,9 +22,8 @@ const S3FileUploadButton = ({ children, name, id, fileInputVisible, fileSelected
         id={id}
         onChange={changeHandler}
         style={{ visibility: fileInputVisible }}
-        className={className}
       />
-      <label htmlFor={name}><button className={className} onClick={clickHandler}>{children}</button></label>
+      <label htmlFor={name}><button onClick={clickHandler}>{children}</button></label>
     </div>
   );
 };
