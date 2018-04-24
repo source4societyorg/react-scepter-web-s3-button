@@ -3,18 +3,18 @@ import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { sagaInjector } from '@source4society/scepter-ui-utilities';
-import { valueOrDefault } from '@source4society/scepter-utility-lib';
+import { isEmpty, valueOrDefault } from '@source4society/scepter-utility-lib';
 import { uploadToS3 } from './action';
 import saga from './saga';
 
 const fileInputRef = { input: null };
 
-const S3FileUploadButton = ({ children, name, id, fileInputVisibility, fileSelectedHandler, className, signedUrl }) => {
+const S3FileUploadButton = ({ children, name, id, fileInputVisibility, fileSelectedHandler, className, signedUrl, accept }) => {
   const changeHandler = makeChangeHandler(fileSelectedHandler, signedUrl);
   const refCallback = makeRefCallback(fileInputRef);
   const clickHandler = makeClickHandler(fileInputRef);
   return (
-    <button className={className} onClick={clickHandler}>
+    <button className={className} onClick={clickHandler} disabled={isEmpty(signedUrl)}>
       {children}
       <input
         type="file"
@@ -23,6 +23,7 @@ const S3FileUploadButton = ({ children, name, id, fileInputVisibility, fileSelec
         id={id}
         onChange={changeHandler}
         style={{ display: fileInputVisibility }}
+        accept={accept}
       />
     </button>
   );
@@ -38,6 +39,7 @@ export const makeRefCallback = (superScopedObject) => (input) => {
 S3FileUploadButton.defaultProps = {
   fileInputVisibility: 'none',
   className: '',
+  accept: 'image/*',
 };
 
 S3FileUploadButton.propTypes = {
@@ -48,6 +50,7 @@ S3FileUploadButton.propTypes = {
   id: PropTypes.string.isRequired,
   className: PropTypes.string,
   signedUrl: PropTypes.string.isRequired,
+  accept: PropTypes.string,
 };
 
 export const mapDispatchToProps = (dispatch) => ({
