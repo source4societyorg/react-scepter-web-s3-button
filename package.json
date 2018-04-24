@@ -1,15 +1,15 @@
 {
-  "name": "@source4society/yourcomponentname",
-  "version": "1.0.0",
+  "name": "@source4society/react-scepter-web-s3-button",
+  "version": "0.0.2",
   "description": "Add your description here",
   "main": "lib/index.js",
-  "repository": "https://github.com/source4societyorg/yourrepository.git",
+  "repository": "https://github.com/source4societyorg/react-scepter-web-s3-button.git",
   "author": "Source 4 Society",
   "license": "AGPL-3.0",
   "private": false,
   "scripts": {
     "test": "eslint ./src/*.js ./tests/*.js && jest --coverage",
-    "build": "babel src/index.js --minified --out-file lib/index.js",
+    "build": "babel src/index.js --minified --out-file lib/index.js && babel src/action.js --minified --out-file lib/action.js && babel src/constants.js --minified --out-file lib/constants.js && babel src/saga.js --minified --out-file lib/saga.js",
     "prepublish": "npm run build"
   },
   "jest": {
@@ -41,13 +41,19 @@
     "testRegex": "tests/.*\\.test\\.js$"
   },
   "dependencies": {
+    "@source4society/scepter-app-utilities": "^2.1.1",
+    "@source4society/scepter-aws-s3-utilities": "^1.1.0",
+    "@source4society/scepter-ui-utilities": "^1.1.1",
     "@source4society/scepter-utility-lib": "^1.1.0",
+    "aws-sdk": "^2.227.1",
     "immutable": "3.8.1",
     "moment": "^2.20.1",
     "react": "15.6.1",
     "react-dom": "15.6.1",
+    "react-redux": "^5.0.7",
     "react-router-dom": "4.1.1",
     "react-test-renderer": "15.6.1",
+    "redux": "^4.0.0",
     "redux-saga": "^0.16.0",
     "reselect": "3.0.1"
   },
