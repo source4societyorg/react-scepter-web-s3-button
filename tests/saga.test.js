@@ -16,7 +16,7 @@ test('uploadToS3Saga to send request to S3 and dispatch the proper action', () =
   const mockFile = { files: ['mockFile'], value: 'mockFileName' };
   const mockSignedUrl = 'mockSignedUrl';
   const mockPromise = () => mockFileData;
-  const mockFileData = 'mockFileData';
+  const mockFileData = { target: { result: 'mockFileData' } };
   const mockRequestHandler = () => mockResponse;
   const mockAction = {
     fileInput: mockFile,
@@ -45,7 +45,7 @@ test('uploadToS3Saga to send request to S3 and dispatch the proper action', () =
   expect(call.CALL.args).toEqual([mockFile.files[0]]);
   call = generator.next(mockFileData).value;
   expect(call.CALL.fn.name).toEqual(mockSendRequestToS3.name);
-  expect(call.CALL.args).toEqual([mockRequestHandler, mockFileData, mockSignedUrl, mockContentType]);
+  expect(call.CALL.args).toEqual([mockRequestHandler, mockFileData.target.result, mockSignedUrl, mockContentType]);
   const put = generator.next().value;
   expect(put.PUT.action.type).toEqual(S3_UPLOAD_SUCCEEDED);
   expect(put.PUT.action.signedUrl).toEqual(mockSignedUrl);
