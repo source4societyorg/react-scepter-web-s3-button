@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-"@source4society/scepter-app-utilities@^2.0.3", "@source4society/scepter-app-utilities@^2.1.1":
+"@source4society/scepter-app-utilities@^2.1.1":
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/@source4society/scepter-app-utilities/-/scepter-app-utilities-2.1.1.tgz#f0e5eba81b8e018161e83eaf6e2ca570e4e8bc45"
   dependencies:
@@ -16,9 +16,9 @@
     redux-immutable "^4.0.0"
     redux-saga "^0.16.0"
 
-"@source4society/scepter-aws-s3-utilities@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@source4society/scepter-aws-s3-utilities/-/scepter-aws-s3-utilities-1.1.0.tgz#f2639084f1b9b8d4451e85908759b4a99adc6ee6"
+"@source4society/scepter-aws-s3-utilities@^1.3.0":
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/@source4society/scepter-aws-s3-utilities/-/scepter-aws-s3-utilities-1.3.0.tgz#5bf29d5f8b78170f39a5cad151d7e64e85fbed73"
   dependencies:
     "@source4society/scepter-utility-lib" "^2.1.0"
     immutable "3.8.1"
@@ -64,24 +64,6 @@
     react-test-renderer "15.6.1"
     redux-saga "^0.16.0"
     reselect "3.0.1"
-
-"@source4society/scepter-webui-utilities@^1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@source4society/scepter-webui-utilities/-/scepter-webui-utilities-1.0.2.tgz#dff5c852d263e94dc261cb3b3d792fe987f6d593"
-  dependencies:
-    "@source4society/scepter-app-utilities" "^2.0.3"
-    babel-polyfill "6.23.0"
-    exports-loader "^0.6.4"
-    hoist-non-react-statics "2.1.1"
-    immutable "^3.8.2"
-    lodash "4.17.5"
-    react "15.6.1"
-    react-dom "15.6.1"
-    react-router-dom "4.1.1"
-    react-test-renderer "15.6.1"
-    redux-saga "^0.16.0"
-    webpack "3.5.5"
-    whatwg-fetch "2.0.3"
 
 abab@^1.0.3:
   version "1.0.4"

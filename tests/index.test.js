@@ -10,20 +10,22 @@ test('S3FileUploadButton renders without problems', () => {
 
 test('S3FileUploadButton has defaultProps properly assigned', () => {
   expect(S3FileUploadButton.defaultProps).toEqual({
-    fileInputVisible: 'hidden',
+    fileInputVisibility: 'none',
     className: '',
+    accept: 'image/*',
   });
 });
 
 test('S3FileUpload has propTypes properly assigned', () => {
   expect(S3FileUploadButton.propTypes).toEqual({
     children: PropTypes.any,
-    fileInputVisible: PropTypes.string,
+    fileInputVisibility: PropTypes.string,
     fileSelectedHandler: PropTypes.func,
     name: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
     className: PropTypes.string,
     signedUrl: PropTypes.string.isRequired,
+    accept: PropTypes.string,
   });
 });
 

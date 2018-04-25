@@ -55,7 +55,7 @@ S3FileUploadButton.propTypes = {
 
 export const mapDispatchToProps = (dispatch) => ({
   fileSelectedHandler: (signedUrl, injectedFileInput) => {
-    const fileInput = valueOrDefault(injectedFileInput, fileInputRef.input);
+    const fileInput = valueOrDefault(injectedFileInput, fileInputRef && fileInputRef.input);
     return dispatch(uploadToS3(signedUrl, fileInput));
   },
 });
