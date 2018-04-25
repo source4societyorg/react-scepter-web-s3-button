@@ -18,7 +18,7 @@ export function* uploadToS3Saga(action, injectedSendRequestToS3, injectedGetCont
     const signedUrl = action.signedUrl;
     const contentType = getContentTypeFromExtension(action.fileInput.value);
     const requestHandler = valueOrDefault(injectedRequestHandler, request);
-    const fileData = yield call(asyncFileReader(file));
+    const fileData = yield call(asyncFileReader, file);
     yield call(sendRequestToS3, requestHandler, fileData, signedUrl, contentType);
     yield put(s3UploadSucceeded(signedUrl, file, contentType));
   } catch (exception) {
