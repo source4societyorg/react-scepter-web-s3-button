@@ -9,12 +9,12 @@ import saga from './saga';
 
 const fileInputRef = { input: null };
 
-const S3FileUploadButton = ({ children, name, id, fileInputVisibility, fileSelectedHandler, className, signedUrl, accept }) => {
+const S3FileUploadButton = ({ children, name, id, fileInputVisibility, fileSelectedHandler, className, signedUrl, accept, disabled, buttonProps, inputProps }) => {
   const changeHandler = makeChangeHandler(fileSelectedHandler, signedUrl);
   const refCallback = makeRefCallback(fileInputRef);
   const clickHandler = makeClickHandler(fileInputRef);
   return (
-    <button className={className} onClick={clickHandler} disabled={isEmpty(signedUrl)}>
+    <button className={className} onClick={clickHandler} disabled={valueOrDefault(isEmpty(signedUrl), disabled)} {...buttonProps}>
       {children}
       <input
         type="file"
@@ -24,6 +24,7 @@ const S3FileUploadButton = ({ children, name, id, fileInputVisibility, fileSelec
         onChange={changeHandler}
         style={{ display: fileInputVisibility }}
         accept={accept}
+        {...inputProps}
       />
     </button>
   );
@@ -40,6 +41,9 @@ S3FileUploadButton.defaultProps = {
   fileInputVisibility: 'none',
   className: '',
   accept: 'image/*',
+  disabled: false,
+  buttonProps: {},
+  inputProps: {},
 };
 
 S3FileUploadButton.propTypes = {
@@ -51,6 +55,9 @@ S3FileUploadButton.propTypes = {
   className: PropTypes.string,
   signedUrl: PropTypes.string.isRequired,
   accept: PropTypes.string,
+  disabled: PropTypes.bool,
+  buttonProps: PropTypes.object,
+  inputProps: PropTypes.object,
 };
 
 export const mapDispatchToProps = (dispatch) => ({

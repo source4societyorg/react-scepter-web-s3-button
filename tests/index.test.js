@@ -13,6 +13,9 @@ test('S3FileUploadButton has defaultProps properly assigned', () => {
     fileInputVisibility: 'none',
     className: '',
     accept: 'image/*',
+    disabled: false,
+    buttonProps: {},
+    inputProps: {},
   });
 });
 
@@ -26,6 +29,9 @@ test('S3FileUpload has propTypes properly assigned', () => {
     className: PropTypes.string,
     signedUrl: PropTypes.string.isRequired,
     accept: PropTypes.string,
+    disabled: PropTypes.bool,
+    buttonProps: PropTypes.object,
+    inputProps: PropTypes.object,
   });
 });
 

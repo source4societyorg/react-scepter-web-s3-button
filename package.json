@@ -1,6 +1,6 @@
 {
   "name": "@source4society/react-scepter-web-s3-button",
-  "version": "1.1.4",
+  "version": "1.2.0",
   "description": "Add your description here",
   "main": "lib/index.js",
   "repository": "https://github.com/source4societyorg/react-scepter-web-s3-button.git",

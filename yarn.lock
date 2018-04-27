@@ -16,9 +16,9 @@
     redux-immutable "^4.0.0"
     redux-saga "^0.16.0"
 
-"@source4society/scepter-aws-s3-utilities@^1.3.2":
-  version "1.3.2"
-  resolved "https://registry.yarnpkg.com/@source4society/scepter-aws-s3-utilities/-/scepter-aws-s3-utilities-1.3.2.tgz#18041dcf3f7160f9899df22ce4ce96baa3473aae"
+"@source4society/scepter-aws-s3-utilities@^1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@source4society/scepter-aws-s3-utilities/-/scepter-aws-s3-utilities-1.4.0.tgz#65b787afe870c4f01b0a62c579b5dc60fb273698"
   dependencies:
     "@source4society/scepter-utility-lib" "^2.1.0"
     immutable "3.8.1"
