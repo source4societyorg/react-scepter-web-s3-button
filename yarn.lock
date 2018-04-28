@@ -2,14 +2,15 @@
 # yarn lockfile v1
 
 
-"@source4society/react-scepter-web-s3-button@^1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@source4society/react-scepter-web-s3-button/-/react-scepter-web-s3-button-1.2.0.tgz#fa7f507073cd4a33cb25a79c0fef75e310d77572"
+"@source4society/react-scepter-web-s3-button@^1.2.1":
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/@source4society/react-scepter-web-s3-button/-/react-scepter-web-s3-button-1.2.3.tgz#486fc088b5bac1a70141fa7eecb602783e632bf3"
   dependencies:
+    "@source4society/react-scepter-web-s3-button" "^1.2.1"
     "@source4society/scepter-app-utilities" "^2.1.1"
     "@source4society/scepter-aws-s3-utilities" "^1.4.0"
     "@source4society/scepter-ui-utilities" "^1.1.1"
-    "@source4society/scepter-utility-lib" "^1.1.0"
+    "@source4society/scepter-utility-lib" "^2.2.0"
     aws-sdk "^2.227.1"
     immutable "3.8.1"
     moment "^2.20.1"
@@ -53,6 +54,23 @@
 "@source4society/scepter-ui-utilities@^1.1.1":
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/@source4society/scepter-ui-utilities/-/scepter-ui-utilities-1.1.1.tgz#a447f1d6485971dbfb392c84b569e38f1d10ac17"
+  dependencies:
+    "@source4society/scepter-app-utilities" "^2.1.1"
+    babel-polyfill "6.23.0"
+    exports-loader "^0.6.4"
+    history "^4.7.2"
+    hoist-non-react-statics "2.1.1"
+    immutable "^3.8.2"
+    lodash "4.17.5"
+    react "15.6.1"
+    react-test-renderer "15.6.1"
+    redux-saga "^0.16.0"
+    webpack "3.5.5"
+    whatwg-fetch "2.0.3"
+
+"@source4society/scepter-ui-utilities@^1.1.2":
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@source4society/scepter-ui-utilities/-/scepter-ui-utilities-1.1.2.tgz#c8827fd5f8c4d5f06f637c322e985f52e2487474"
   dependencies:
     "@source4society/scepter-app-utilities" "^2.1.1"
     babel-polyfill "6.23.0"
