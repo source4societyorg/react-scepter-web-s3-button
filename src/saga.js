@@ -9,6 +9,11 @@ import { request } from '@source4society/scepter-ui-utilities';
 import { UPLOAD_TO_S3 } from './constants';
 import { s3UploadFailed, s3UploadSucceeded } from './action';
 
+export const defaultRequestHandler = (url, options, injectedRequestHandler) => {
+  const requestHandler = valueOrDefault(injectedRequestHandler, request);
+  requestHandler(url, options, false); // Disable standard JSON parsing
+};
+
 export function* uploadToS3Saga(action, injectedSendRequestToS3, injectedGetContentType, injectedRequestHandler, injectedFileReader) {
   try {
     const sendRequestToS3 = valueOrDefault(injectedSendRequestToS3, defaultSendRequestToS3);
@@ -17,7 +22,7 @@ export function* uploadToS3Saga(action, injectedSendRequestToS3, injectedGetCont
     const file = action.fileInput.files[0];
     const signedUrl = action.signedUrl;
     const contentType = getContentTypeFromExtension(action.fileInput.value);
-    const requestHandler = valueOrDefault(injectedRequestHandler, request);
+    const requestHandler = valueOrDefault(injectedRequestHandler, defaultRequestHandler);
     const fileData = yield call(asyncFileReader, file);
     yield call(sendRequestToS3, requestHandler, fileData.target.result, signedUrl, contentType);
     yield put(s3UploadSucceeded(signedUrl, file, contentType));

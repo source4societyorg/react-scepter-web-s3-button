@@ -1,4 +1,4 @@
-import s3UploadButtonSagaListener, { uploadToS3Saga } from '../src/saga';
+import s3UploadButtonSagaListener, { uploadToS3Saga, defaultRequestHandler } from '../src/saga';
 import { UPLOAD_TO_S3, S3_UPLOAD_FAILED, S3_UPLOAD_SUCCEEDED } from '../src/constants';
 
 test('s3UploadButtonSagaListener listens for the correct event', () => {
@@ -79,4 +79,15 @@ test('uploadToS3Saga dispatches the proper action on exception', () => {
   expect(put.PUT.action.type).toEqual(S3_UPLOAD_FAILED);
   expect(put.PUT.action.exception).toEqual(mockException);
   expect(generator.next().done).toBeTruthy();
+});
+
+test('defaultRequestHandler takes two parameters and calls request', () => {
+  const mockUrl = 'mockUrl';
+  const mockOptions = 'mockOptions';
+  const mockRequestHandler = (url, options, parseJson) => {
+    expect(url).toEqual(mockUrl);
+    expect(options).toEqual(mockOptions);
+    expect(parseJson).toEqual(false);
+  };
+  defaultRequestHandler(mockUrl, mockOptions, mockRequestHandler);
 });
