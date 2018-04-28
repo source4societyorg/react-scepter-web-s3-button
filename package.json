@@ -1,6 +1,6 @@
 {
   "name": "@source4society/react-scepter-web-s3-button",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Add your description here",
   "main": "lib/index.js",
   "repository": "https://github.com/source4societyorg/react-scepter-web-s3-button.git",
@@ -41,10 +41,11 @@
     "testRegex": "tests/.*\\.test\\.js$"
   },
   "dependencies": {
+    "@source4society/react-scepter-web-s3-button": "^1.2.0",
     "@source4society/scepter-app-utilities": "^2.1.1",
     "@source4society/scepter-aws-s3-utilities": "^1.4.0",
     "@source4society/scepter-ui-utilities": "^1.1.1",
-    "@source4society/scepter-utility-lib": "^1.1.0",
+    "@source4society/scepter-utility-lib": "^2.2.0",
     "aws-sdk": "^2.227.1",
     "immutable": "3.8.1",
     "moment": "^2.20.1",

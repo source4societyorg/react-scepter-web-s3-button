@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { sagaInjector } from '@source4society/scepter-ui-utilities';
-import { isEmpty, valueOrDefault } from '@source4society/scepter-utility-lib';
+import { isEmpty, valueOrDefault, eitherOf } from '@source4society/scepter-utility-lib';
 import { uploadToS3 } from './action';
 import saga from './saga';
 
@@ -14,7 +14,7 @@ const S3FileUploadButton = ({ children, name, id, fileInputVisibility, fileSelec
   const refCallback = makeRefCallback(fileInputRef);
   const clickHandler = makeClickHandler(fileInputRef);
   return (
-    <button className={className} onClick={clickHandler} disabled={valueOrDefault(isEmpty(signedUrl), disabled)} {...buttonProps}>
+    <button className={className} onClick={clickHandler} disabled={eitherOf(isEmpty(signedUrl), disabled)} {...buttonProps}>
       {children}
       <input
         type="file"
